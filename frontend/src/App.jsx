@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import Create from "./Create.jsx"
 
 function App() {
 
+  const [refresh, setRefresh] = useState(0)
   const [toggleDark, setToggleDark] = useState(false)
+  const [toggleCreate, setToggleCreate] = useState(false)
 
   useEffect(() => {
     if (toggleDark) {
@@ -16,9 +19,11 @@ function App() {
   return (
     <>
       <header>
+
         <div id="header-title">
           <h1>CRUD Grocery List</h1>
         </div>
+
         <div id="header-btn">
           <button 
             id='ui-dark-btn' 
@@ -30,9 +35,19 @@ function App() {
           <button 
             id='create-btn'
             style={{color: toggleDark ? "white" : "black"}}
+            onClick={() => setToggleCreate(true)}
           >CREATE</button>
         </div>
+
       </header>
+
+        {
+          toggleCreate && (
+            <Create 
+              setToggleCreate={setToggleCreate}
+            />
+          )
+        }
     </>
   )
 }
