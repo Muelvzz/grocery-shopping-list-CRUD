@@ -1,0 +1,36 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2E2E3A;
+    padding: 1rem;
+    font-family: "Roboto Condensed";
+    align-items: center;
+}
+
+#header-title {
+    color: white;
+}
+
+#header-btn button {
+    font-family: "Roboto Condensed";
+    align-items: center;
+    margin-inline: 0.5rem;
+    cursor: pointer;
+}
+
+#ui-dark-btn {
+    border-radius: 50%;
+    padding: 0.4rem;
+    font-size: larger;
+    border-style: none;
+}
+
+#create-btn {
+    padding: 0.75rem 1.75rem;
+    border-radius: 7.5px;
+    font-weight: bolder;
+    font-size: large;
+    background-color: #A5C4D4;
+    color: white;
+    border-style: none;
+}
