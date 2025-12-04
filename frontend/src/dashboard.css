@@ -1,0 +1,46 @@
+.grocery-container {
+    width: 95%;
+    padding: 1rem;
+    margin: 0 auto 1rem auto;
+    border-radius: 10px;
+}
+
+.grocery-header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.grocery-content-header, .grocery-content-data {
+    display: grid;
+    align-items: center;
+    text-align: center;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.grocery-content-header {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.grocery-header-right > button {
+    margin-inline: 0.25rem;
+    padding: 0.5rem 1rem;
+    border-style: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#add-btn {
+    background-color: green;
+}
+
+#edit-btn {
+    background-color: rgb(206, 183, 9);
+}
+
+#delete-btn {
+    background-color: rgb(240, 8, 8);
+}

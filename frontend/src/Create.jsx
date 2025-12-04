@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./modals.css"
 
-export default function Create({ setToggleCreate }) {
+export default function Create({ setToggleCreate, setRefresh }) {
 
     const [groceries, setGroceries] = useState([
         {name: "", quantity: ""}

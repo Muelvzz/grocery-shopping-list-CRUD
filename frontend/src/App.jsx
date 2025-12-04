@@ -1,12 +1,23 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+
 import Create from "./Create.jsx"
+import Dashboard from './Dashboard.jsx'
+
+import api from './api.js'
 
 function App() {
 
-  const [refresh, setRefresh] = useState(0)
+  const [refresh, setRefresh] = useState(false)
   const [toggleDark, setToggleDark] = useState(false)
   const [toggleCreate, setToggleCreate] = useState(false)
+
+  const [groceries, setGroceries] = useState([])
+
+  async function loadGroceries() {
+    const res = await api.get("/grocery/view-all")
+    setGroceries(res.data)
+  }
 
   useEffect(() => {
     if (toggleDark) {
@@ -15,6 +26,10 @@ function App() {
       document.documentElement.classList.remove("dark")
     }
   }, [toggleDark])
+
+  useEffect(() => {
+    loadGroceries()
+  }, [refresh])
 
   return (
     <>
@@ -41,10 +56,20 @@ function App() {
 
       </header>
 
+      <main>
+        <Dashboard 
+          groceries={groceries}
+          setGroceries={setGroceries}
+          refresh={refresh}
+          toggleDark={toggleDark}
+        />
+      </main>
+
         {
           toggleCreate && (
             <Create 
               setToggleCreate={setToggleCreate}
+              setRefresh={setRefresh}
             />
           )
         }

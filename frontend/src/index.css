@@ -16,6 +16,11 @@ body {
     color: white;
 }
 
+main {
+    background-color: rgb(64, 58, 58);
+    padding: 1.5rem;
+}
+
 form, input {
     width: 100%;
 }
