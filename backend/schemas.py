@@ -4,6 +4,7 @@ from typing import List
 # Request Model
 class GroceryItemCreate(BaseModel):
     name: str
+    price: float
     quantity: int
 
 
@@ -16,6 +17,7 @@ class GroceryGroupCreate(BaseModel):
 class GroceryItem(BaseModel):
     id: int
     name: str
+    price: float
     quantity: int
     group_id: int
 

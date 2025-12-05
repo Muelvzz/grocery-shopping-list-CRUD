@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, Numeric
 from sqlalchemy.orm import relationship
 from .database import Base
 
@@ -17,5 +17,6 @@ class GroceryItems(Base):
     group_id = Column(Integer, ForeignKey("grocery_name.id"))
     name = Column(String, nullable=False)
     quantity = Column(Integer, nullable=False)
+    price = Column(Numeric(10, 2), nullable=False)
 
     group = relationship("GroceryName", back_populates="items")

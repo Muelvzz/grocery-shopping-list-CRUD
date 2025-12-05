@@ -10,7 +10,7 @@ export default function Create({ setToggleCreate, setRefresh }) {
     }
 
     const [groceries, setGroceries] = useState([
-        {name: "", quantity: ""}
+        {name: "", price: 0, quantity: ""}
     ])
     const [groceryName, setGroceryName] = useState("")
 
@@ -44,7 +44,7 @@ export default function Create({ setToggleCreate, setRefresh }) {
                         </div>
                         <div id="right-header">
                             <button
-                                onClick={() => setGroceries(prev => [...prev, {name: "", quantity: ""}])}
+                                onClick={() => setGroceries(prev => [...prev, {name: "", price: 0, quantity: ""}])}
                             >➕</button>
                         </div>
                     </div>
@@ -80,7 +80,21 @@ export default function Create({ setToggleCreate, setRefresh }) {
 
                                 <input 
                                     type="number" 
-                                    placeholder="Number"
+                                    placeholder="Price"
+                                    value={item.price}
+                                    onChange={(e) => {
+                                        setGroceries(prev => {
+                                            const updated = [...prev];
+                                            updated[i].price = e.target.value
+                                            return updated
+                                        })
+                                    }}
+                                    required
+                                />
+
+                                <input 
+                                    type="number" 
+                                    placeholder="Quantity"
                                     value={item.quantity}
                                     onChange={(e) => {
                                         setGroceries(prev => {

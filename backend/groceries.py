@@ -25,6 +25,7 @@ def create_group(group: GroceryGroupCreate, db: Session = Depends(get_db)):
         for item in group.items:
             db_item = models.GroceryItems(
                 name=item.name,
+                price=item.price,
                 quantity=item.quantity,
                 group_id=db_group.id
             )

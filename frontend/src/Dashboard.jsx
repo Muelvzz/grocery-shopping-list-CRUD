@@ -5,7 +5,7 @@ export default function Dashboard({ groceries, setGroceries, toggleDark }) {
 
     return (
         <>
-            {groceries.map((grocery, index) => (
+            {groceries.map((grocery) => (
                 <div 
                     className="grocery-container"
                     style={{backgroundColor: "rgba(128, 128, 128, 0.3)" }}
@@ -38,20 +38,29 @@ export default function Dashboard({ groceries, setGroceries, toggleDark }) {
                     <div className="grocery-content">
 
                         <div className="grocery-content-header">
-                            <div className="grocery-content-header-left">
+                            <div>
                                 <p>Name</p>
                             </div>
-                            <div className="grocery-content-header-right">
+                            <div>
+                                <p>Price</p>
+                            </div>
+                            <div>
                                 <p>Quantity</p>
                             </div>
                         </div>
 
                         {grocery.items.map((item) => (
                             <div className="grocery-content-data">
-                                <div className="grocery-content-data-left">
-                                    <p>{ item.name }</p>
+                                <div >
+                                    <p 
+                                        align="left"
+                                        style={{marginLeft: "1rem"}}
+                                    >{ item.name }</p>
                                 </div>
-                                <div className="grocery-content-data-right">
+                                <div>
+                                    <p>{ item.price } pesos</p>
+                                </div>
+                                <div>
                                     <p>{ item.quantity }</p>
                                 </div>
                             </div>
