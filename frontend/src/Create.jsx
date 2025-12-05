@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 import "./modals.css"
+import api from "./api";
 
 export default function Create({ setToggleCreate, setRefresh }) {
+
+    async function addGrocery(grocery) {
+        const res = await api.post("/grocery/create-group", grocery)
+        setRefresh(prev => !prev)
+    }
 
     const [groceries, setGroceries] = useState([
         {name: "", quantity: ""}
@@ -14,10 +20,16 @@ export default function Create({ setToggleCreate, setRefresh }) {
 
     const handleSubmit = (e) => {
         event.preventDefault()
-        console.log({
-            groceryName: groceryName,
-            groceries: groceries
-    })
+
+        const groceriesData = {
+            grocery_group_name: groceryName,
+            items: groceries
+        }
+
+        addGrocery(groceriesData)
+
+        console.log(`${groceryName} is added to the database`)
+
         setToggleCreate(false)
     }
 
@@ -28,7 +40,7 @@ export default function Create({ setToggleCreate, setRefresh }) {
 
                     <div className="modal-header">
                         <div id="left-header">
-                            <h2>This is a modal</h2>
+                            <h2>Create Groceries</h2>
                         </div>
                         <div id="right-header">
                             <button
@@ -90,7 +102,7 @@ export default function Create({ setToggleCreate, setRefresh }) {
 
                         <button
                             id="submit-btn"
-                        >Save</button>
+                        >Create</button>
     
                     </form>
 

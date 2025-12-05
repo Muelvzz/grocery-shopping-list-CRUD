@@ -60,7 +60,6 @@ function App() {
         <Dashboard 
           groceries={groceries}
           setGroceries={setGroceries}
-          refresh={refresh}
           toggleDark={toggleDark}
         />
       </main>

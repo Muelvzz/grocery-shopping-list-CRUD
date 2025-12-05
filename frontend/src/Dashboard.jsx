@@ -1,25 +1,14 @@
 import { useState, useEffect } from "react";
 import "./dashboard.css"
 
-function getRandomColors(number) {
-  return Array.from({length: number}, () => 
-    "#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, "0"))
-}
-
-export default function Dashboard({ groceries, setGroceries, setRefresh, toggleDark }) {
-
-    const [color, setColor] = useState(getRandomColors(groceries.length))
-
-    useEffect(() => {
-        setColor(getRandomColors(groceries.length))
-    }, [groceries.length])
+export default function Dashboard({ groceries, setGroceries, toggleDark }) {
 
     return (
         <>
             {groceries.map((grocery, index) => (
                 <div 
                     className="grocery-container"
-                    style={{backgroundColor: color[index] }}
+                    style={{backgroundColor: "rgba(128, 128, 128, 0.3)" }}
                     key={grocery.id}
                 >
 
